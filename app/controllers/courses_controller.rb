@@ -3,7 +3,7 @@ class CoursesController < ApplicationController
 
   # GET /courses or /courses.json
   def index
-    @courses = Course.all
+    @courses = Course.limit(10)
   end
 
   # GET /courses/1 or /courses/1.json
@@ -20,7 +20,7 @@ class CoursesController < ApplicationController
   # POST /courses or /courses.json
   def create
     @course = Course.new(course_params)
-
+    @course.user = current_user
     respond_to do |format|
       if @course.save
         format.html { redirect_to course_url(@course), notice: 'Course was successfully created.' }
