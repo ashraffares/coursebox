@@ -15,7 +15,9 @@
   <body>
 
     <%= render partial: "partials/navbar" %>
-    <%= render partial: "partials/msg" %>
-    <%= yield %>
+    <div class="container">
+      <%= render partial: "partials/msg" %>
+      <%= yield %>
+    </div>
   </body>
 </html>
